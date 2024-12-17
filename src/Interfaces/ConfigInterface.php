@@ -12,5 +12,6 @@ namespace BrokeYourBike\Opticash\Interfaces;
 interface ConfigInterface
 {
     public function getUrl(): string;
-    public function getToken(): string;
+    public function getUsername(): string;
+    public function getPassword(): string;
 }

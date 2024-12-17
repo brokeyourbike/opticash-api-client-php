@@ -47,7 +47,10 @@ class Client implements HttpClientInterface
         $options = [
             \GuzzleHttp\RequestOptions::HEADERS => [
                 'Accept' => 'application/json',
-                'Authorization' => 'Bearer ' . $this->config->getToken(),
+            ],
+            \GuzzleHttp\RequestOptions::AUTH => [
+                $this->config->getUsername(),
+                $this->config->getPassword(),
             ],
             \GuzzleHttp\RequestOptions::JSON => [
                 'currency_id' => $transaction->getCurrencyId(),
@@ -75,7 +78,10 @@ class Client implements HttpClientInterface
         $options = [
             \GuzzleHttp\RequestOptions::HEADERS => [
                 'Accept' => 'application/json',
-                'Authorization' => 'Bearer ' . $this->config->getToken(),
+            ],
+            \GuzzleHttp\RequestOptions::AUTH => [
+                $this->config->getUsername(),
+                $this->config->getPassword(),
             ],
             \GuzzleHttp\RequestOptions::JSON => [
                 'amount' => $transaction->getAmount(),
@@ -116,7 +122,10 @@ class Client implements HttpClientInterface
         $options = [
             \GuzzleHttp\RequestOptions::HEADERS => [
                 'Accept' => 'application/json',
-                'Authorization' => 'Bearer ' . $this->config->getToken(),
+            ],
+            \GuzzleHttp\RequestOptions::AUTH => [
+                $this->config->getUsername(),
+                $this->config->getPassword(),
             ],
         ];
 
