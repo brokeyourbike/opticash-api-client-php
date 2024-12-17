@@ -10,6 +10,7 @@ use Psr\Http\Message\ResponseInterface;
 use BrokeYourBike\Opticash\Responses\TransferResponse;
 use BrokeYourBike\Opticash\Interfaces\TransferInterface;
 use BrokeYourBike\Opticash\Interfaces\ConfigInterface;
+use BrokeYourBike\Opticash\Enums\TransactionStatusEnum;
 use BrokeYourBike\Opticash\Enums\RequestStatusEnum;
 use BrokeYourBike\Opticash\Client;
 
@@ -38,7 +39,7 @@ class TransferTest extends TestCase
                     "amount": 0,
                     "fee": 0,
                     "type": "string",
-                    "status": "string",
+                    "status": "PENDING",
                     "sender_currency_slug": "string",
                     "receiver_currency_slug": "string",
                     "sender_currency_logo_url": "string",
@@ -119,5 +120,6 @@ class TransferTest extends TestCase
         $requestResult = $api->externalTransfer($transaction, 'reference');
         $this->assertInstanceOf(TransferResponse::class, $requestResult);
         $this->assertEquals(RequestStatusEnum::SUCCESS->value, $requestResult->status);
+        $this->assertEquals(TransactionStatusEnum::PENDING->value, $requestResult->transactionStatus);
     }
 }

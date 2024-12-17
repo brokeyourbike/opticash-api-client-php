@@ -9,8 +9,8 @@ namespace BrokeYourBike\Opticash\Enums;
 /**
  * @author Ivan Stasiuk <ivan@stasi.uk>
  */
-enum TransferStatusEnum: string
+enum TransactionStatusEnum: string
 {
-    case COMPLETED = 'completed';
-    case PENDING = 'pending';
+    case COMPLETED = 'COMPLETED';
+    case PENDING = 'PENDING';
 }

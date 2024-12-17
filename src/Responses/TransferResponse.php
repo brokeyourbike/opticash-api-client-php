@@ -19,4 +19,10 @@ class TransferResponse extends JsonResponse
 
     #[MapFrom('data.reference')]
     public ?string $reference;
+
+    #[MapFrom('data.customer_reference')]
+    public ?string $customerReference;
+
+    #[MapFrom('data.status')]
+    public ?string $transactionStatus;
 }

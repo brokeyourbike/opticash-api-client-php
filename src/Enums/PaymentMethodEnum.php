@@ -12,4 +12,5 @@ namespace BrokeYourBike\Opticash\Enums;
 enum PaymentMethodEnum: string
 {
     case BANK_TRANSFER = 'BANK_TRANSFER';
+    case MOBILE_MONEY = 'MOBILE_MONEY';
 }
