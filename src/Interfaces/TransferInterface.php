@@ -20,7 +20,6 @@ interface TransferInterface
     public function getReference(): string;
     public function getSenderName(): string;
     public function getRecipientName(): string;
-    public function getRecipientIdentifier(): string;
-    public function getRecipientInstitution(): string;
-    public function getRecipientInstitutionId(): string;
+    public function getRecipientAccountIdentifier(): string;
+    public function getRecipientAccountProvider(): string;
 }

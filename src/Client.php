@@ -87,10 +87,10 @@ class Client implements HttpClientInterface
                 'customerReference' => $transaction->getReference(),
                 'senderName' => $transaction->getSenderName(),
                 'beneficiary_details' => [
-                    'identifier' => $transaction->getRecipientIdentifier(),
+                    'identifier' => $transaction->getRecipientAccountIdentifier(),
                     'identifier_name' => $transaction->getRecipientName(),
-                    'institution' => $transaction->getRecipientInstitution(),
-                    'institution_id' => $transaction->getRecipientInstitutionId(),
+                    'institution' => $transaction->getRecipientAccountProvider(),
+                    'institution_id' => $transaction->getRecipientAccountProvider(),
                     'currency_slug' => $transaction->getCurrency(),
                 ],
                 'conversion' => false,
