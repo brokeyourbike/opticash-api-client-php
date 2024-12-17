@@ -13,12 +13,14 @@ use BrokeYourBike\Opticash\Enums\PaymentMethodEnum;
  */
 interface TransferInterface
 {
+    public function getPaymentMethod(): PaymentMethodEnum;
     public function getAmount(): float;
     public function getCurrency(): string;
     public function getCurrencyId(): int;
-    public function getReason(): string;
+    public function getReference(): string;
+    public function getSenderName(): string;
+    public function getRecipientName(): string;
     public function getRecipientIdentifier(): string;
-    public function getRecipientIdentifierName(): string;
     public function getRecipientInstitution(): string;
     public function getRecipientInstitutionId(): string;
 }

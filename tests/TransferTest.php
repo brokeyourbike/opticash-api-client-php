@@ -12,6 +12,7 @@ use BrokeYourBike\Opticash\Interfaces\TransferInterface;
 use BrokeYourBike\Opticash\Interfaces\ConfigInterface;
 use BrokeYourBike\Opticash\Enums\TransactionStatusEnum;
 use BrokeYourBike\Opticash\Enums\RequestStatusEnum;
+use BrokeYourBike\Opticash\Enums\PaymentMethodEnum;
 use BrokeYourBike\Opticash\Client;
 
 /**
@@ -23,6 +24,7 @@ class TransferTest extends TestCase
     public function it_can_prepare_request(): void
     {
         $transaction = $this->getMockBuilder(TransferInterface::class)->getMock();
+        $transaction->method('getPaymentMethod')->willReturn(PaymentMethodEnum::BANK_TRANSFER);
 
         /** @var TransferInterface $transaction */
         $this->assertInstanceOf(TransferInterface::class, $transaction);

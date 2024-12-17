@@ -70,7 +70,7 @@ class Client implements HttpClientInterface
         return new NameEnquiryResponse($response);
     }
 
-    public function externalTransfer(TransferInterface $transaction, string $nameEnquiryReference): TransferResponse
+    public function externalTransfer(TransferInterface $transaction): TransferResponse
     {
         $options = [
             \GuzzleHttp\RequestOptions::HEADERS => [
@@ -82,19 +82,19 @@ class Client implements HttpClientInterface
                 'recipient_amount' => $transaction->getAmount(),
                 'base_currency_id' => $transaction->getCurrencyId(),
                 'quote_currency_id' => $transaction->getCurrencyId(),
-                'reason' => $transaction->getReason(),
-                'payment_method' => PaymentMethodEnum::BANK_TRANSFER->value,
-                'conversion' => false,
-                'saveBeneficiaries' => false,
+                'reason' => $transaction->getReference(),
+                'payment_method' => $transaction->getPaymentMethod()->value,
+                'customerReference' => $transaction->getReference(),
+                'senderName' => $transaction->getSenderName(),
                 'beneficiary_details' => [
                     'identifier' => $transaction->getRecipientIdentifier(),
-                    'identifier_name' => $transaction->getRecipientIdentifierName(),
+                    'identifier_name' => $transaction->getRecipientName(),
                     'institution' => $transaction->getRecipientInstitution(),
                     'institution_id' => $transaction->getRecipientInstitutionId(),
                     'currency_slug' => $transaction->getCurrency(),
                 ],
-                'message' => $transaction->getReason(),
-                'name_inquiry_reference' => $nameEnquiryReference,
+                'conversion' => false,
+                'saveBeneficiaries' => false,
             ],
         ];
 
