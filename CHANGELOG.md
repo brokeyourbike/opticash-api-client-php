@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.4.0](https://www.github.com/brokeyourbike/opticash-api-client-php/compare/v0.3.0...v0.4.0) (2026-03-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* mode
+
+### Bug Fixes
+
+* mode ([923061d](https://www.github.com/brokeyourbike/opticash-api-client-php/commit/923061d72378e1d7a00ee64c2d0b6298b5912d6e))
+
 ## [0.3.0](https://www.github.com/brokeyourbike/opticash-api-client-php/compare/v0.2.0...v0.3.0) (2026-03-17)
 
 
