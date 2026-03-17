@@ -60,8 +60,8 @@ class Client implements HttpClientInterface
             ],
         ];
 
-        if ($transaction instanceof SourceModelInterface){
-            $options[\BrokeYourBike\HasSourceModel\Enums\RequestOptions::SOURCE_MODEL] = $transaction;
+        if ($this->getSourceModel() != null){
+            $options[\BrokeYourBike\HasSourceModel\Enums\RequestOptions::SOURCE_MODEL] = $this->getSourceModel();
         }
 
         $response = $this->httpClient->request(
@@ -104,8 +104,8 @@ class Client implements HttpClientInterface
             ],
         ];
 
-        if ($transaction instanceof SourceModelInterface){
-            $options[\BrokeYourBike\HasSourceModel\Enums\RequestOptions::SOURCE_MODEL] = $transaction;
+        if ($this->getSourceModel() != null){
+            $options[\BrokeYourBike\HasSourceModel\Enums\RequestOptions::SOURCE_MODEL] = $this->getSourceModel();
         }
 
         $response = $this->httpClient->request(
@@ -128,6 +128,10 @@ class Client implements HttpClientInterface
                 $this->config->getPassword(),
             ],
         ];
+
+        if ($this->getSourceModel() != null){
+            $options[\BrokeYourBike\HasSourceModel\Enums\RequestOptions::SOURCE_MODEL] = $this->getSourceModel();
+        }
 
         $response = $this->httpClient->request(
             HttpMethodEnum::GET->value,
